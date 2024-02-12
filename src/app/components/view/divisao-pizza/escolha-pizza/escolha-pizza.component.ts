@@ -10,5 +10,7 @@ import { EscolhasComponent } from './escolhas/escolhas.component';
   styleUrl: './escolha-pizza.component.css'
 })
 export class EscolhaPizzaComponent {
-
+  pizzaEscolhida(){
+    console.log("clicou") //n foi
+  }
 }
