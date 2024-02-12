@@ -1,0 +1,13 @@
+.escolhas{
+    grid-area: escolha;
+    background-color: var(--amarelo);
+}
+
+.opcoes{
+    height: 50vh;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}

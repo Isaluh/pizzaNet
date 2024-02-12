@@ -1,0 +1,20 @@
+.btn{
+    width: 196px;
+    height: 52px;
+    background-color: var(--verde);
+    border: none;
+    border-radius: 10px;
+    margin-bottom: 30px;
+
+    &.normal176{
+        width: 176px;
+    }
+
+    &.opinar{
+        width: 176px;
+        background-color: var(--azul);
+    }
+}
+.btn:hover{
+    opacity: 0.8;
+}

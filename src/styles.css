@@ -1,1 +1,48 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --vermelho: #BF0000;
+    --amarelo: #FBFFCC;
+    --verde: #226B00;
+    --branco-fundo: #F4F4F4;
+    --branco: #ffffff;
+    --azul: #00446B;
+    --preto: #000000;
+}
+
+@font-face{
+    font-family: Jeju Hallasan;
+    src: url("./assets/fonts/jejuhallasan/JejuHallasan-Regular.ttf");
+}
+
+@font-face {
+    font-family: Josefin Sans;
+    src: url("./assets/fonts/JosefinSans-VariableFont_wght.ttf");
+}
+
+h1{
+    color: var(--branco);
+    font-family: Jeju Hallasan;
+    font-size: 30px;
+
+}
+
+h2{
+    color: var(--branco);
+    font-family: Jeju Hallasan;
+    font-size: 22px;
+}
+
+h3{
+    color: var(--preto);
+    font-family: Josefin Sans;
+    font-size: 20px;
+}
+
+li{
+    margin: 0 0 35px 18px;
+}

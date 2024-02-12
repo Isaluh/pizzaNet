@@ -1,0 +1,17 @@
+.escolha{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+}
+.escolha>h1{
+    color: var(--preto);
+}
+.escolha>img{
+    border-radius: 100%;
+}
+.escolha>img:hover{
+    transform: scale(1.05);
+}

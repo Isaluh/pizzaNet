@@ -1,0 +1,8 @@
+.saborDaVez>div>h1{
+    color: var(--preto);
+}
+.saborDaVez>div>h1:hover{
+    color: var(--verde);
+    opacity: 0.8;
+    cursor: pointer;
+}

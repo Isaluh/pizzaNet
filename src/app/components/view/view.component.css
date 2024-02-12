@@ -1,0 +1,6 @@
+main{
+    display: grid;
+    grid-template-areas: "menu conteudo";
+    grid-auto-columns: 281px 1fr;
+    grid-template-rows: 100vh;
+}
