@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ListaSaboresComponent } from './lista-sabores/lista-sabores.component';
 import { NgFor, NgOptimizedImage } from '@angular/common';
 import { Sabor } from '../../../../../models/sabores.modelo';
-import { SaboresService } from '../../../../services/sabores.service';
+import { SaboresService } from '../../../../../services/sabores.service';
 import { BotoesComponent } from '../../botoes/botoes.component';
 
 @Component({

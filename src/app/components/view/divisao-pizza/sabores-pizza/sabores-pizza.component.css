@@ -1,0 +1,33 @@
+.secPizzas{
+    grid-area: conteudo;
+    background-color: var(--branco-fundo);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+    height: 100%;
+}
+
+.carrosel-sabores{
+    width: 100%;
+    height: 50%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+
+    padding: 0 34px;
+    gap: 65px;
+}
+
+.colunas{
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

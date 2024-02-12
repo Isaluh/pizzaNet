@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { SaboresService } from '../../../../../services/sabores.service';
+import { SaboresService } from '../../../../../../services/sabores.service';
 
 @Component({
   selector: 'lista-sabores',
