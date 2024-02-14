@@ -1,6 +1,12 @@
 <div class="menu-icons">
     <div *ngFor="let categoria of menuLista" class="{{categoria[2]}}">
-        <h2 hidden>{{ categoria[0] }}</h2>
-        <img (mouseover)="over($event)" (mouseout)="out($event)" draggable="false" width="30" height="30" ngSrc="{{ categoria[1] }}">
+        <ng-container *ngIf="categoria[2] == 'atual'">
+            <h2 >{{ categoria[0] }}</h2>
+            <img hidden (mouseover)="over($event)" (mouseout)="out($event)" draggable="false" width="30" height="30" ngSrc="{{ categoria[1] }}">
+        </ng-container>
+        <ng-container *ngIf="categoria[2] != 'atual'">
+            <h2 (click)="mudarPag()" hidden>{{ categoria[0] }}</h2>
+            <img (mouseover)="over($event)" (mouseout)="out($event)" draggable="false" width="30" height="30" ngSrc="{{ categoria[1] }}">
+        </ng-container>
     </div>
 </div>
