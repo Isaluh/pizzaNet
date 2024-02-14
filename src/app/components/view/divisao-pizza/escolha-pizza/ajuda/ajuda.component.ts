@@ -9,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './ajuda.component.css'
 })
 export class AjudaComponent {
+  
+  abrirAjuda(){
 
+  }
 }
