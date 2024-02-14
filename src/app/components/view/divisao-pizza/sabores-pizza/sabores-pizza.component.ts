@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ListaSaboresComponent } from './lista-sabores/lista-sabores.component';
 import { NgFor, NgOptimizedImage } from '@angular/common';
-import { Sabor } from '../../../../../models/sabores.modelo';
+import { Sabor, PaginaSabor } from '../../../../../models/sabores.modelo';
 import { SaboresService } from '../../../../../services/sabores.service';
 import { BotoesComponent } from '../../botoes/botoes.component';
 
@@ -12,55 +12,62 @@ import { BotoesComponent } from '../../botoes/botoes.component';
   templateUrl: './sabores-pizza.component.html',
   styleUrl: './sabores-pizza.component.css'
 })
-export class SaboresPizzaComponent {
+export class SaboresPizzaComponent implements OnInit {
   sabores: Sabor[] = [];
-  paginaAtual: Sabor[] = [];
   colunaEs : Sabor[] = [];
   colunaDi : Sabor[] = [];
-  paginaIndex: number = 0;
+  tamanhoPagina: number = 4;
+  private pagina: PaginaSabor = {
+    "data": [],
+    "currentPage": -1,
+    "totalItems": -1,
+    "totalPages": -1
+  };
+  constructor(private saboresService: SaboresService) { }
 
-  constructor(private saboresService: SaboresService) {
-    this.obterSaboresPizza();
-    this.criarPaginaAtual();
+  ngOnInit(): void {
+    this.loadSabores(1, this.tamanhoPagina);
+  }
+  loadSabores(pagina:number, tamanho:number) {
+    this.getSabores(pagina, tamanho);
   }
 
-  obterSaboresPizza() {
-    this.saboresService.getSabores()
-    .subscribe(sabores => this.sabores = sabores)
+  nextPage() {
+    if (this.pagina.currentPage >= this.pagina.totalPages) {
+        return;
+      }
+    this.getSabores(this.pagina.currentPage + 1, this.tamanhoPagina)
+    
+
+  }
+  previousPage() {
+    if (this.pagina.currentPage <= 1) {
+      return;
+    }
+    this.getSabores(this.pagina.currentPage - 1, this.tamanhoPagina)
+  }
+
+  getSabores(pagina:number, tamanho:number) {
+    this.saboresService.getSabores(pagina, tamanho)
+    .subscribe(sabores => {
+      this.pagina = sabores;
+      this.sabores = sabores.data;
+      this.criarPaginaAtual();
+    })
   }
 
   criarPaginaAtual() {
-    let tempArray: Sabor[] = [];
-    let i: number = this.paginaIndex*4;
-    while (i < this.paginaIndex*4 + 4 && i < this.sabores.length) {
-      tempArray.push(this.sabores[i]);
-      i += 1;
-    }
-    i = tempArray.length;
-    this.paginaAtual = tempArray;
-    i = 0;
+    let i: number = 0;
     this.colunaEs = [];
     this.colunaDi = [];
-    while (i < 4 && i < tempArray.length) {
-      if(i < 2){
-        this.colunaEs.push(tempArray[i]);
-      }else{
-        this.colunaDi.push(tempArray[i]);
+
+    while ( i < this.sabores.length) {
+      if (i < this.tamanhoPagina / 2) {
+        this.colunaEs.push(this.sabores[i])
+      } else {
+        this.colunaDi.push(this.sabores[i])
       }
-      i += 1;
+      i++;      
     }
-  }
-
-  proximaPagina() {
-    if (this.paginaIndex * 4 > this.sabores.length ) {
-        this.paginaIndex = 0;
-    } else {
-      this.paginaIndex += 1;
-    }
-    this.criarPaginaAtual;
-  }
-
-  voltarPagina(){
-
   }
 }

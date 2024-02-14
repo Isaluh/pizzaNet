@@ -1,13 +1,13 @@
 <section class="secPizzas">
     <div class="carrosel-sabores">
-        <img (click)="voltarPagina()" width="30" height="30" ngSrc="./assets/pizzaNetSetaEs 1.png"> 
+        <img (click)="previousPage()" width="30" height="30" ngSrc="./assets/pizzaNetSetaEs 1.png"> 
         <div class="colunas">
             <lista-sabores *ngFor="let sabor of colunaEs" sabor="{{sabor.sabor}}" ingredientes="{{sabor.ingredientes}}"></lista-sabores>
         </div>
         <div class="colunas">
             <lista-sabores *ngFor="let sabor of colunaDi" sabor="{{sabor.sabor}}" ingredientes="{{sabor.ingredientes}}"></lista-sabores>
         </div>
-        <img (click)="proximaPagina()" width="30" height="30" ngSrc="./assets/pizzaNetSeta 1.png">
+        <img (click)="nextPage()" width="30" height="30" ngSrc="./assets/pizzaNetSeta 1.png">
     </div>
     <app-botoes text="Adicionar" variant="normal196"></app-botoes>
 </section>
