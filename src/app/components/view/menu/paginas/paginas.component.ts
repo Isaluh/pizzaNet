@@ -1,11 +1,11 @@
-import { NgFor, NgOptimizedImage } from '@angular/common';
+import { NgFor, NgIf, NgOptimizedImage } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'menu-paginas',
   standalone: true,
-  imports: [NgOptimizedImage, NgFor],
+  imports: [NgOptimizedImage, NgFor, NgIf],
   templateUrl: './paginas.component.html',
   styleUrl: './paginas.component.css'
 })
@@ -48,5 +48,8 @@ export class PaginasComponent{
     event.target.removeAttribute("hidden");
   }
 
-  // fazer o atual n aparecer igm e sim o h2
+  mudarPag(){
+    // mudar url no click
+    console.log("oi")
+  }
 }
