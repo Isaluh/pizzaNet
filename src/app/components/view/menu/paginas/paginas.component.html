@@ -1,34 +1,6 @@
 <div class="menu-icons">
-    <div>
-        <h2 hidden>Login</h2>
-        <img draggable="false" width="30" height="30" ngSrc="./assets/login.svg" alt="Login">
-    </div>
-    <div class="atual">
-        <h2>Pizzas</h2>
-        <img draggable="false" width="30" height="30" ngSrc="./assets/pizzas.svg" hidden alt="Pizzas" id="pizzas">
-    </div>
-    <div>
-        <h2 hidden>Bebidas</h2>
-        <img draggable="false" width="30" height="30" ngSrc="./assets/bebidas.svg" alt="Bebidas" id="bebidas">
-    </div>
-    <div>
-        <h2 hidden>Ver pedido</h2>
-        <img draggable="false" width="30" height="30" ngSrc="./assets/pedido.svg" alt="Ver pedido" id="pedido">
-    </div>
-    <div>
-        <h2 hidden>Populares</h2>
-        <img draggable="false" width="30" height="30" ngSrc="./assets/populares.svg" alt="Populares" id="populares">
-    </div>
-    <div>
-        <h2 hidden>Histórico</h2>
-        <img draggable="false" width="30" height="30" ngSrc="./assets/historico.svg" alt="Histórico" id="historico">
-    </div>
-    <div>
-        <h2 hidden>Concluir pedido</h2>
-        <img draggable="false" width="30" height="30" ngSrc="./assets/comprar.svg" alt="Concluir pedido" id="comprar">
-    </div>
-    <div>
-        <h2 hidden>Feedback</h2>
-        <img draggable="false" width="30" height="30" ngSrc="./assets/feedback.svg" alt="Feedback" id="opinar">
+    <div *ngFor="let categoria of menuLista" class="{{categoria[2]}}">
+        <h2 hidden>{{ categoria[0] }}</h2>
+        <img (mouseover)="over($event)" (mouseout)="out($event)" draggable="false" width="30" height="30" ngSrc="{{ categoria[1] }}">
     </div>
 </div>
