@@ -1,13 +1,23 @@
 <section class="secPizzas">
     <div class="carrosel-sabores">
-        <img (click)="previousPage()" width="30" height="30" ngSrc="./assets/pizzaNetSetaEs 1.png"> 
+        <ng-container *ngIf="pagina.currentPage > 1">
+            <img (click)="previousPage()" width="30" height="30" ngSrc="./assets/pizzaNetSetaEs 1.png"> 
+        </ng-container>
+        <ng-container *ngIf="pagina.currentPage == 1">
+            <img (click)="previousPage()" width="30" height="30" style="opacity: 0;" ngSrc="./assets/pizzaNetSetaEs 1.png"> 
+        </ng-container>
         <div class="colunas">
             <lista-sabores *ngFor="let sabor of colunaEs" sabor="{{sabor.sabor}}" ingredientes="{{sabor.ingredientes}}"></lista-sabores>
         </div>
         <div class="colunas">
             <lista-sabores *ngFor="let sabor of colunaDi" sabor="{{sabor.sabor}}" ingredientes="{{sabor.ingredientes}}"></lista-sabores>
         </div>
-        <img (click)="nextPage()" width="30" height="30" ngSrc="./assets/pizzaNetSeta 1.png">
+        <ng-container *ngIf="pagina.currentPage >= pagina.totalPages">
+            <img (click)="nextPage()" style="opacity: 0;" width="30" height="30" ngSrc="./assets/pizzaNetSeta 1.png">
+        </ng-container>
+        <ng-container *ngIf="pagina.currentPage < pagina.totalPages">
+            <img (click)="nextPage()" width="30" height="30" ngSrc="./assets/pizzaNetSeta 1.png">
+        </ng-container>
     </div>
     <app-botoes text="Adicionar" variant="normal196"></app-botoes>
 </section>
