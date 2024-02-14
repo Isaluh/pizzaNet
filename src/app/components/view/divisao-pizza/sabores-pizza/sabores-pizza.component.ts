@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ListaSaboresComponent } from './lista-sabores/lista-sabores.component';
-import { NgFor, NgOptimizedImage } from '@angular/common';
+import { NgFor, NgOptimizedImage, NgIf } from '@angular/common';
 import { Sabor, PaginaSabor } from '../../../../../models/sabores.modelo';
 import { SaboresService } from '../../../../../services/sabores.service';
 import { BotoesComponent } from '../../botoes/botoes.component';
@@ -8,7 +8,7 @@ import { BotoesComponent } from '../../botoes/botoes.component';
 @Component({
   selector: 'sabores-pizza',
   standalone: true,
-  imports: [ListaSaboresComponent, NgOptimizedImage, NgFor, BotoesComponent],
+  imports: [ListaSaboresComponent, NgOptimizedImage, NgFor, NgIf, BotoesComponent],
   templateUrl: './sabores-pizza.component.html',
   styleUrl: './sabores-pizza.component.css'
 })
@@ -17,7 +17,7 @@ export class SaboresPizzaComponent implements OnInit {
   colunaEs : Sabor[] = [];
   colunaDi : Sabor[] = [];
   tamanhoPagina: number = 4;
-  private pagina: PaginaSabor = {
+  public pagina: PaginaSabor = {
     "data": [],
     "currentPage": -1,
     "totalItems": -1,
