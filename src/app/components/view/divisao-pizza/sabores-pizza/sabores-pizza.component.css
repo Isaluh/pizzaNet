@@ -22,6 +22,9 @@
     padding: 0 34px;
     gap: 65px;
 }
+.carrosel-sabores img{
+    cursor: pointer;
+}
 
 .colunas{
     height: 100%;
