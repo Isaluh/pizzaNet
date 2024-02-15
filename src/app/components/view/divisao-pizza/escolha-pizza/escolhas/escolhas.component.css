@@ -10,6 +10,7 @@
     color: var(--preto);
 }
 .escolha>img{
+    cursor: pointer;
     border-radius: 100%;
 }
 .escolha>img:hover{
