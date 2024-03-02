@@ -39,7 +39,6 @@ export class PaginasComponent{
     if(event.target.parentNode.getAttribute("class") == "atual") return
     event.target.parentNode.querySelector("h2").removeAttribute("hidden");
     event.target.setAttribute("hidden", "");
-
   }
 
   out(event : any){

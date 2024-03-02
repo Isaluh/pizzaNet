@@ -16,6 +16,6 @@ export class BotoesComponent {
   @Output("submit") onSubmit = new EventEmitter();
 
   submit(){
-    this.onSubmit.emit();
+    //essa função deve ser sobreescrita
   }
 }

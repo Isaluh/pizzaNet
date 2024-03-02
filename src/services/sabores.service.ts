@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 export class SaboresService {
 
   // private _httpClient: HttpClient;
-  private API_url: string = "http://26.110.127.246:3080/sabores2?page=$PAGINA&size=$TAMANHO";
+  private API_url: string = "http://localhost:3080/sabores2?page=$PAGINA&size=$TAMANHO";
 
   constructor(private httpClient:HttpClient) {
   }

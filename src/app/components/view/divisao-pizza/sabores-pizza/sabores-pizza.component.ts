@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ListaSaboresComponent } from './lista-sabores/lista-sabores.component';
 import { NgFor, NgOptimizedImage, NgIf } from '@angular/common';
 import { Sabor, PaginaSabor } from '../../../../../models/sabores.modelo';
 import { SaboresService } from '../../../../../services/sabores.service';
 import { BotoesComponent } from '../../botoes/botoes.component';
+import { TamanhoPizza } from '../../../../../models/pedido.modelo';
 
 @Component({
   selector: 'sabores-pizza',
@@ -12,7 +13,7 @@ import { BotoesComponent } from '../../botoes/botoes.component';
   templateUrl: './sabores-pizza.component.html',
   styleUrl: './sabores-pizza.component.css'
 })
-export class SaboresPizzaComponent implements OnInit {
+export class SaboresPizzaComponent implements OnInit, AfterViewInit {
   sabores: Sabor[] = [];
   colunaEs : Sabor[] = [];
   colunaDi : Sabor[] = [];
@@ -23,11 +24,32 @@ export class SaboresPizzaComponent implements OnInit {
     "totalItems": -1,
     "totalPages": -1
   };
+  @ViewChild(BotoesComponent) submitBotao!:BotoesComponent;
+
   constructor(private saboresService: SaboresService) { }
+
+  ngAfterViewInit(): void {
+    this.submitBotao.submit = () => {
+      console.log(this.getTamanho);
+    }
+  }
 
   ngOnInit(): void {
     this.loadSabores(1, this.tamanhoPagina);
   }
+
+  getTamanho():TamanhoPizza {
+    return TamanhoPizza.NULL;
+    //Essa função é sobreescrevida em divisao-pizza.component
+  }
+
+  submitPedido():void {
+    
+  }
+  definirSabores(): void {
+
+  }
+
   loadSabores(pagina:number, tamanho:number) {
     this.getSabores(pagina, tamanho);
   }
@@ -67,7 +89,7 @@ export class SaboresPizzaComponent implements OnInit {
       } else {
         this.colunaDi.push(this.sabores[i])
       }
-      i++;      
+      i++;
     }
   }
 }

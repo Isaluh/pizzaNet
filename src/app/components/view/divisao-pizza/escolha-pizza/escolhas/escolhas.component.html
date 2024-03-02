@@ -1,6 +1,9 @@
 <div class="escolha">
     <h1>{{ tamanho }}</h1>
     <img class="verificado" width="40" height="40" ngSrc="./assets/verificado.png">
-    <img draggable="false" (click)="escolhaPizza(tamanho)" width="150" height="150" ngSrc="{{img}}">
+    <img (click)="selectMe(tamanho)" draggable="false" width="150" height="150" ngSrc="{{img}}">
     <h1>{{ pedaco }} pedaços</h1>
+    <ng-container *ngIf="selecionada == true">
+        <h1>X</h1>
+    </ng-container>
 </div>
