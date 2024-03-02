@@ -1,1 +1,4 @@
-<img id="ajuda" width="30" height="30" ngSrc="./assets/info.png" alt="Informação">
+<div>
+    <span hidden> {{msgHelp}} </span>
+    <img (mouseover)="abrirAjuda($event)" (mouseout)="fecharAjuda($event)" id="ajuda" width="30" height="30" ngSrc="./assets/info.png" alt="Informação">
+</div>

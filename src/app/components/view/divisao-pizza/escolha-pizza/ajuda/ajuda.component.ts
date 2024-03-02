@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
 
 @Component({
   selector: 'pizza-ajuda',
@@ -9,5 +9,13 @@ import { Component } from '@angular/core';
   styleUrl: './ajuda.component.css'
 })
 export class AjudaComponent {
+  @Input("msgHelp") msgHelp : string = `Para escolher uma pizza inteira, escolha o tamanho e depois selecione o sabor. Para escolher uma pizza metade metade, escolha o tamanho e depois selecione dois sabores.`;
 
+  abrirAjuda(event : any){
+    event.target.parentNode.querySelector("span").removeAttribute("hidden");
+  }
+
+  fecharAjuda(event : any){
+    event.target.parentNode.querySelector("span").setAttribute("hidden", "");
+  }
 }
